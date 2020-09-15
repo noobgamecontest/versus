@@ -25,4 +25,7 @@ Route::group(['prefix' => 'ajax'], function () {
         Route::post('ladders', [App\Http\Controllers\Ajax\LadderController::class, 'store'])->name('api.ladder.store');
         Route::put('ladders/{ladder}', [App\Http\Controllers\Ajax\LadderController::class, 'update'])->name('api.ladder.update');
     });
+
+    Route::get('ladders/{ladder}/teams', [App\Http\Controllers\Ajax\TeamController::class, 'index'])->name('ajax.team.index');
+    Route::post('ladders/{ladder}/matches', [App\Http\Controllers\Ajax\MatchController::class, 'store'])->name('ajax.match.store');
 });
