@@ -19,8 +19,8 @@
 
             <!-- Page Heading -->
             <header class="bg-blue-900 border-b-2 border-black text-white">
-                <div class="max-w-7xl mx-auto py-1 px-4 sm:px-6 lg:px-8 font-title text-4xl text-orange-400 text-center">
-                    Versus
+                <div class="max-w-7xl mx-auto py-1 px-4 sm:px-6 lg:px-8 font-title text-4xl text-yellow-star text-center">
+                    <a href="{{ url('/') }}">Versus</a>
                 </div>
             </header>
 

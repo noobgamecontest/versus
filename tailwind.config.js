@@ -6,6 +6,9 @@ module.exports = {
             fontFamily: {
                 sans: ['Nunito', ...defaultTheme.fontFamily.sans],
                 title: ['Carter One'],
+            },
+            colors: {
+                'yellow-star': '#fabc3b',
             }
         }
     },
