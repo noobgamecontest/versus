@@ -26,30 +26,7 @@
 
             <!-- Page Content -->
             <main class="mx-4 mt-4">
-                <div class="max-w-sm overflow-hidden shadow-lg bg-blue-500 border-2 border-black mb-4">
-                    <div class="px-6 py-4">
-                        <div class="font-bold text-xl mb-2">1v1 Ping-Pong</div>
-                        <p class="text-white text-base">
-                            Lorem ipsum dolor sit amet, consectetur adipisicing elit.
-                        </p>
-                    </div>
-                </div>
-                <div class="max-w-sm overflow-hidden shadow-lg bg-blue-500 border-2 border-black mb-4">
-                    <div class="px-6 py-4">
-                        <div class="font-bold text-xl mb-2">2v2 Ping-Pong</div>
-                        <p class="text-white text-base">
-                            Lorem ipsum dolor sit amet, consectetur adipisicing elit.
-                        </p>
-                    </div>
-                </div>
-                <div class="max-w-sm overflow-hidden shadow-lg bg-blue-500 border-2 border-black">
-                    <div class="px-6 py-4">
-                        <div class="font-bold text-xl mb-2">1v1 Street Fighter</div>
-                        <p class="text-white text-base">
-                            Lorem ipsum dolor sit amet, consectetur adipisicing elit.
-                        </p>
-                    </div>
-                </div>
+                @yield('content')
             </main>
         </div>
 
