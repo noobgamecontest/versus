@@ -23,7 +23,8 @@ class LadderFactory extends Factory
     public function definition()
     {
         return [
-            'name' => '1v1 ' . $this->faker->country,
+            'name' => $this->faker->randomElement(['1v1 Ping-Pong', '2v2 Ping-Pong', '1v1 Street Fighter', '1v1 Shifumi', '1v1 Mario Kart', 'FFA Mario Kart']),
+            'description' => $this->faker->text(42),
         ];
     }
 }

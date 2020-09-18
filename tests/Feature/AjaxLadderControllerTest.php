@@ -65,6 +65,7 @@ class AjaxLadderControllerTest extends TestCase
 
         $response = $this->actingAs($admin)->post('/ajax/ladders', [
             'name' => $name = '100v100 King',
+            'description' => 'Lorem Elsass ipsum Salu bissame Spätzle ...',
         ]);
 
         $response->assertSuccessful();
@@ -87,6 +88,7 @@ class AjaxLadderControllerTest extends TestCase
 
         $response = $this->actingAs($member)->post('/ajax/ladders', [
             'name' => 'Not yet bro',
+            'description' => 'Lorem Elsass ipsum Salu bissame Spätzle ...',
         ]);
 
         $response->assertForbidden();
@@ -97,6 +99,7 @@ class AjaxLadderControllerTest extends TestCase
     {
         $response = $this->post('/ajax/ladders', [
             'name' => 'Not yet bro too',
+            'description' => 'Lorem Elsass ipsum Salu bissame Spätzle ...',
         ]);
 
         $response->assertRedirect('/login');
@@ -111,10 +114,12 @@ class AjaxLadderControllerTest extends TestCase
 
         $ladder = Ladder::factory()->create([
             'name' => 'From the past with love',
+            'description' => 'Lorem Elsass ipsum Salu bissame Spätzle ...',
         ]);
 
         $response = $this->actingAs($admin)->put('/ajax/ladders/' . $ladder->id, [
             'name' => $name = 'New age !',
+            'description' => "Everyday I'm Shuffling ...",
         ]);
 
         $response->assertSuccessful();

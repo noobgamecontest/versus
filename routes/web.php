@@ -17,6 +17,8 @@ Route::get('/login', function () {
     return 'No way !';
 })->name('login');
 
+Route::get('/', [App\Http\Controllers\Front\LadderController::class, 'index'])->name('ladder.index');
+
 Route::group(['prefix' => 'ajax'], function () {
     Route::get('ladders', [App\Http\Controllers\Ajax\LadderController::class, 'index'])->name('ajax.ladder.index');
     Route::get('ladders/{ladder}/ranking', [App\Http\Controllers\Ajax\LadderController::class, 'ranking'])->name('ajax.ladder.ranking');

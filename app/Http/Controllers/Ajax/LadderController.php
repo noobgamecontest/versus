@@ -43,7 +43,7 @@ class LadderController extends Controller
         ]);
 
         $ladder = Ladder::create(
-            $request->only('name')
+            $request->only(['name', 'description'])
         );
 
         return response()->json($ladder);
@@ -56,7 +56,7 @@ class LadderController extends Controller
         ]);
 
         $ladder->update(
-            $request->only('name')
+            $request->only(['name', 'description'])
         );
 
         return response()->json($ladder);
