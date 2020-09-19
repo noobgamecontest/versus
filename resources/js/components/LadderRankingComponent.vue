@@ -3,11 +3,8 @@
         <div class="max-w-sm mx-auto text-white text-xl text-shadow font-bold text-center bg-blue-700 py-2 mb-4">
             {{ ladder.name }}
         </div>
-        <div class="max-w-sm mx-auto flex mb-4">
-            <a href="#" class="w-1/2 text-center text-white text-shadow uppercase mr-1 bg-yellow-star font-bold py-1 sm:hover:shadow-lg">
-                Join !
-            </a>
-            <a href="#" class="w-1/2 text-center text-white text-shadow uppercase ml-1 bg-yellow-star font-bold py-1 sm:hover:shadow-lg">
+        <div class="max-w-sm mx-auto mb-4 flex">
+            <a href="#" class="text-center w-full text-white text-shadow uppercase bg-yellow-star font-bold py-1 border-b-4 border-yellow-600 sm:hover:shadow-lg">
                 Fight !
             </a>
         </div>
