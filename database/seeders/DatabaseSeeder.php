@@ -22,15 +22,9 @@ class DatabaseSeeder extends Seeder
             'name' => '1v1 Pong',
         ]);
 
-        User::factory()->create()->each(function (User $user) use ($ladder) {
-            $user->teams()->save(Team::factory()->make([
-                'name' => $user->name,
-                'avatar' => $user->avatar,
-                'ladder_id' => $ladder->id,
-            ]));
-        });
+        $ladder->teams()->saveMany($teams = Team::factory()->count(16)->make());
 
-        $teams = Team::all()->random(12);
+        $teams = $teams->random(12);
 
         for ($i = 0; $i < 3; $i++) {
             $teams->each(function ($team) use ($teams) {

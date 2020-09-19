@@ -8,28 +8,29 @@
         <title>{{ config('app.name', 'Laravel') }}</title>
 
         <!-- Fonts -->
-        <link href="https://fonts.googleapis.com/css?family=Nunito:400,600,700" rel="stylesheet">
+        <link href="https://fonts.googleapis.com/css?family=Lato:400,600,700" rel="stylesheet">
         <link href="https://fonts.googleapis.com/css?family=Carter+One:400,600,700" rel="stylesheet">
 
         <!-- Styles -->
         <link href="{{ mix('css/app.css') }}" rel="stylesheet">
     </head>
     <body class="font-sans antialiased">
-        <div class="min-h-screen bg-blue-800">
+        <div id="app">
+            <div class="min-h-screen bg-blue-800">
 
-            <!-- Page Heading -->
-            <header class="bg-blue-900 border-b-2 border-black text-white">
-                <div class="max-w-7xl mx-auto py-1 px-4 sm:px-6 lg:px-8 font-title text-4xl text-yellow-star text-center">
-                    <a href="{{ url('/') }}">Versus</a>
-                </div>
-            </header>
+                <!-- Page Heading -->
+                <header class="bg-blue-900 border-b-2 border-black text-white">
+                    <div class="max-w-7xl mx-auto py-1 px-4 sm:px-6 lg:px-8 font-title text-4xl text-yellow-star text-center text-shadow">
+                        <a href="{{ url('/') }}">Versus</a>
+                    </div>
+                </header>
 
-            <!-- Page Content -->
-            <main class="mx-4 mt-4">
-                @yield('content')
-            </main>
+                <!-- Page Content -->
+                <main class="mx-4 mt-4">
+                    @yield('content')
+                </main>
+            </div>
         </div>
-
         <script src="{{ mix('js/app.js') }}"></script>
     </body>
 </html>
