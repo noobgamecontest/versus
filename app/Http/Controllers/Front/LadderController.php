@@ -13,4 +13,9 @@ class LadderController
 
         return response()->view('ladder.index', ['ladders' => $ladders]);
     }
+
+    public function ranking(Ladder $ladder): Response
+    {
+        return response()->view('ladder.ranking', ['ladder' => $ladder]);
+    }
 }
