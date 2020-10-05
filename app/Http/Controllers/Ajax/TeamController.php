@@ -14,13 +14,4 @@ class TeamController extends Controller
     {
         return response()->json($ladder->teams);
     }
-
-    public function store(Ladder $ladder, Request $request): JsonResponse
-    {
-        $team = Team::make([$request->only('name')]);
-
-        $ladder->teams()->save($team);
-
-        return response()->json($team);
-    }
 }
