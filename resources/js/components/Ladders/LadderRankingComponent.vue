@@ -50,7 +50,7 @@ module.exports = {
         getTeams() {
             axios.get('/ajax/ladders/' + this.ladder.id + '/teams').then(response => {
                 this.teams = response.data;
-            })
+            });
         }
     },
 

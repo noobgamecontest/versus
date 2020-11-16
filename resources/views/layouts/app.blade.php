@@ -16,6 +16,7 @@
 
 {{--        on installe fontawesome ?--}}
         <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.5.0/css/all.css" integrity="sha384-B4dIYHKNBt8Bc12p+WXckhzcICo0wtJAoU8YZTY5qE0Id1GSseTk6S+L3BlXeVIU" crossorigin="anonymous">
+
         @auth
             <script>
                 window.user_id = '{{ auth()->user()->id }}';
@@ -29,7 +30,7 @@
                 <!-- Page Heading -->
                 <header class="bg-blue-900 border-b-2 py-3 border-black text-white">
                     <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 justify-between flex items-center text-shadow">
-                        <a class="text-yellow-star mx-auto text-4xl font-title" href="/">Versus</a>
+                        <a class="text-yellow-star mx-auto text-4xl font-title" href="{{ url('/') }}">Versus</a>
                     </div>
                 </header>
 

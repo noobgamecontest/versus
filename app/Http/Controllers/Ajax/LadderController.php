@@ -54,12 +54,14 @@ class LadderController extends Controller
     public function update(Ladder $ladder, UpdateLadderFormRequest $request)
     {
         $ladder->update($request->only('name', 'description', 'image_url'));
+
         return redirect()->route('ladder.index');
     }
 
     public function destroy(Ladder $ladder)
     {
         $ladder->delete();
+
         return redirect()->route('ladder.index');
     }
 }

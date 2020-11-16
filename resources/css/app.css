@@ -9,5 +9,13 @@
 }
 
 .input-custom {
-    @apply px-2 rounded-lg text-gray-600
+    @apply px-2 rounded-lg text-gray-600 w-full
+}
+
+.dots {
+    word-break: break-word;
+    display: -webkit-box;
+    -webkit-line-clamp: 2;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
 }

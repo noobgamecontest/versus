@@ -13,6 +13,7 @@ class LadderController
     public function index(): Response
     {
         $ladders = Ladder::all();
+
         return response()->view('ladder.index', ['ladders' => $ladders]);
     }
 
@@ -34,6 +35,7 @@ class LadderController
     public function ranking(Ladder $ladder, Team $teams): Response
     {
         $teams = Team::all();
+
         return response()->view('ladder.ranking', ['ladder' => $ladder, 'teams' => $teams]);
     }
 
