@@ -13,15 +13,23 @@
 
         <!-- Styles -->
         <link href="{{ mix('css/app.css') }}" rel="stylesheet">
+
+{{--        on installe fontawesome ?--}}
+        <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.5.0/css/all.css" integrity="sha384-B4dIYHKNBt8Bc12p+WXckhzcICo0wtJAoU8YZTY5qE0Id1GSseTk6S+L3BlXeVIU" crossorigin="anonymous">
+        @auth
+            <script>
+                window.user_id = '{{ auth()->user()->id }}';
+            </script>
+        @endauth
     </head>
     <body class="font-sans antialiased">
         <div id="app">
             <div class="min-h-screen bg-blue-800">
 
                 <!-- Page Heading -->
-                <header class="bg-blue-900 border-b-2 border-black text-white">
-                    <div class="max-w-7xl mx-auto py-1 px-4 sm:px-6 lg:px-8 font-title text-4xl text-yellow-star text-center text-shadow">
-                        <a href="{{ url('/') }}">Versus</a>
+                <header class="bg-blue-900 border-b-2 py-3 border-black text-white">
+                    <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 justify-between flex items-center text-shadow">
+                        <a class="text-yellow-star mx-auto text-4xl font-title" href="/">Versus</a>
                     </div>
                 </header>
 
@@ -34,3 +42,4 @@
         <script src="{{ mix('js/app.js') }}"></script>
     </body>
 </html>
+

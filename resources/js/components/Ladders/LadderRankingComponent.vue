@@ -9,7 +9,7 @@
             </a>
         </div>
         <div class="max-w-sm overflow-hidden mx-auto text-shadow">
-            <div class="flex px-3 py-6 bg-blue-500 border-b-2 border-t border-l border-r border-black mb-4 text-white font-bold" v-for="team in teams">
+            <div class="flex px-3 py-6 bg-blue-500 border-b-2 border-t border-l border-r border-black mb-4 text-white font-bold" v-for="team in this.teams">
                 <div class="self-center w-1/6 text-center text-black">
                     <img class="border-2 border-black" src="https://www.mobafire.com/images/avatars/ziggs-mad-scientist.png" alt="">
                 </div>
@@ -37,18 +37,22 @@ module.exports = {
 
     data: function () {
         return {
+            ladderData: this.ladder,
             teams: Array,
         }
     },
     created: function() {
-        this.getLadder();
+        this.getTeams();
+        console.log(this.ladder);
+        console.log(this.teams);
     },
     methods: {
-        getLadder() {
-            axios.get('/ajax/ladders/' + this.ladder.id + '/ranking').then(response => {
+        getTeams() {
+            axios.get('/ajax/ladders/' + this.ladder.id + '/teams').then(response => {
                 this.teams = response.data;
             })
         }
-    }
+    },
+
 }
 </script>
