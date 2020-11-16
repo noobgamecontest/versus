@@ -18,7 +18,10 @@ class CreateLaddersTable extends Migration
             $table->timestamps();
             $table->string('name');
             $table->text('description');
-        });
+            $table->string('image_url')->nullable();
+            $table->string('category')->nullable();
+
+            });
     }
 
     /**

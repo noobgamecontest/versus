@@ -9,7 +9,9 @@ module.exports = {
             },
             colors: {
                 'yellow-star': '#fabc3b',
-            }
+                'blue-night': '#08224a',
+                'blue-darker': '#193969',
+            },
         }
     },
     variants: {},

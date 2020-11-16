@@ -7,3 +7,7 @@
         text-shadow: 0 1px 0 rgba(0,0,0,0.80);
     }
 }
+
+.input-custom {
+    @apply px-2 rounded-lg text-gray-600
+}

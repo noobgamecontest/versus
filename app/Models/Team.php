@@ -16,12 +16,21 @@ class Team extends Model
      * @var array
      */
     protected $fillable = [
-        'name', 'elo', 'level', 'avatar',
+        'name', 'elo', 'level', 'avatar', 'ladder_id',
     ];
+
+    public static function where($string, $id)
+    {
+    }
 
     public function users(): BelongsToMany
     {
         return $this->belongsToMany(User::class);
+    }
+
+    public function ladders():BelongsToMany
+    {
+        return $this->belongsToMany(Ladder::class);
     }
 
     public function matches(): BelongsToMany

@@ -16,7 +16,7 @@ class Ladder extends Model
      * @var array
      */
     protected $fillable = [
-        'name', 'description',
+        'name', 'description','image_url', 'category'
     ];
 
     public function teams(): HasMany
