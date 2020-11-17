@@ -28,14 +28,14 @@
             <div class="min-h-screen bg-blue-800">
 
                 <!-- Page Heading -->
-                <header class="bg-blue-900 border-b-2 py-3 border-black text-white">
+                <header class="bg-blue-900 py-1 shadow-xl text-white">
                     <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 justify-between flex items-center text-shadow">
-                        <a class="text-yellow-star mx-auto text-4xl font-title" href="{{ url('/') }}">Versus</a>
+                        <a class="text-yellow-star text-4xl font-title mx-auto" href="/">Versus</a>
                     </div>
                 </header>
 
                 <!-- Page Content -->
-                <main class="mx-4 mt-4">
+                <main>
                     @yield('content')
                 </main>
             </div>

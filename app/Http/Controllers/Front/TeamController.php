@@ -5,8 +5,10 @@ namespace App\Http\Controllers\Front;
 use App\Models\Ladder;
 use App\Models\Team;
 use App\Http\Controllers\Controller;
+use Illuminate\Http\RedirectResponse;
 use Illuminate\Http\Request;
 use Illuminate\Http\Response;
+use Illuminate\Support\Facades\Redirect;
 
 class TeamController extends Controller
 {

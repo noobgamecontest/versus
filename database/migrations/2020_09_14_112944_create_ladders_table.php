@@ -20,8 +20,7 @@ class CreateLaddersTable extends Migration
             $table->text('description');
             $table->string('image_url')->nullable();
             $table->string('category')->nullable();
-
-            });
+        });
     }
 
     /**

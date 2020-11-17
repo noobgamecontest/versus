@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers\Ajax;
 
+use App\Http\Requests\StoreLadderFormRequest;
 use App\Models\Ladder;
 use App\Http\Requests\UpdateLadderFormRequest;
 use Illuminate\Http\RedirectResponse;
@@ -38,30 +39,24 @@ class LadderController extends Controller
         return response()->json($teams);
     }
 
-    public function store(Request $request): RedirectResponse
+    public function store(Ladder $ladder, StoreLadderFormRequest $request): JsonResponse
     {
-        $request->validate([
-            'name' => 'required|string',
-        ]);
+        $ladder->create($request->only('name', 'description', 'image_url'));
 
-        $ladder = Ladder::create(
-            $request->only(['name', 'description', 'image_url'])
-        );
-
-        return redirect()->route('ladder.index');
+        return response()->json($request);
     }
 
-    public function update(Ladder $ladder, UpdateLadderFormRequest $request)
+    public function update(Ladder $ladder, UpdateLadderFormRequest $request): JsonResponse
     {
         $ladder->update($request->only('name', 'description', 'image_url'));
 
-        return redirect()->route('ladder.index');
+        return response()->json($ladder);
     }
 
-    public function destroy(Ladder $ladder)
+    public function destroy(Ladder $ladder): JsonResponse
     {
         $ladder->delete();
 
-        return redirect()->route('ladder.index');
+        return response()->json($ladder);
     }
 }

@@ -33,7 +33,9 @@
                 }
             }
         },
-        props: ['ladder'],
+        props: {
+            'ladder': Object
+        },
         methods: {
             submitEditLadder(ladderEdit) {
                 axios.put('/ajax/ladders/' + this.ladderData.id, this.ladderEdit);

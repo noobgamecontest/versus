@@ -1,18 +1,18 @@
 <template>
     <div>
-        <a href="ladders/create">create your ladder</a>
-        <div :key="ladder.id" v-for="ladder in this.ladders" class="max-w-sm overflow-hidden mx-auto">
-            <ladder-component></ladder-component>
-            <button v-on:click="deleteLadder(ladder)" class="text-white bg-red-500">delete this ladder !</button>
+        <div :key="ladder.id" v-for="ladder in this.ladders" class="space-y-6 max-w-sm overflow-hidden mx-auto">
             <a :href="'ladders/' + ladder.id + '/edit'" class="bg-red-500 text-white">edit</a>
-            <div v-on:click="showRanking(ladder)"  class="px-6 py-4 hover:shadow-lg bg-blue-500 border-b-2 border-t border-l border-r border-black mb-4">
+            <button v-on:click="deleteLadder(ladder)" class="text-white bg-red-500">delete this ladder !</button>
+            <div v-on:click="showRanking(ladder)"  class="hover:shadow-lg bg-blue-500 border-b-2 border-t border-l border-r border-black">
                 <img class="w-full" :src="ladder.image_url" alt="">
-                <div class="font-bold text-xl mb-2">
-                    {{ ladder.name }}
+                <div class="px-8 py-4 space-y-2 ">
+                    <h2 class="font-bold text-xl">
+                        {{ ladder.name }}
+                    </h2>
+                    <p class="text-white text-shadow dots">
+                        {{ ladder.description }}
+                    </p>
                 </div>
-                <p class="text-white text-base text-shadow dots">
-                    {{ ladder.description }}
-                </p>
             </div>
         </div>
     </div>

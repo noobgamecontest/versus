@@ -12,24 +12,13 @@ class LadderController
 {
     public function index(): Response
     {
-        $ladders = Ladder::all();
-
-        return response()->view('ladder.index', ['ladders' => $ladders]);
+        $user = auth()->user();
+        return response()->view('ladder.index', ['user' => $user]);
     }
 
     public function create()
     {
         return view('ladder.create');
-    }
-
-    public function show(Ladder $ladder)
-    {
-        dd($ladder);
-    }
-
-    public function teams()
-    {
-        return response()->view('ladder.teams', ['teams' => $teams]);
     }
 
     public function ranking(Ladder $ladder, Team $teams): Response
@@ -39,7 +28,7 @@ class LadderController
         return response()->view('ladder.ranking', ['ladder' => $ladder, 'teams' => $teams]);
     }
 
-    public function edit(Ladder $ladder)
+    public function edit(Ladder $ladder): Response
     {
         return response()->view('ladder.edit', ['ladder' => $ladder]);
     }

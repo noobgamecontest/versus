@@ -12,13 +12,6 @@ use Illuminate\Support\Facades\Route;
 | contains the "web" middleware group. Now create something great!
 |
 */
-
-// @TODO supprimer ça avant PR
-//Auth::login(\App\Models\User::all()->first());
-Auth::login(\App\Models\User::where('id', 2)->first());
-
-Auth::login(\App\Models\User::where('id', 2)->first());
-
 Route::get('/login', function () {
     return 'No way !';
 })->name('login');

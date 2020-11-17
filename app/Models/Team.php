@@ -19,16 +19,12 @@ class Team extends Model
         'name', 'elo', 'level', 'avatar', 'ladder_id',
     ];
 
-    public static function where($string, $id)
-    {
-    }
-
     public function users(): BelongsToMany
     {
         return $this->belongsToMany(User::class);
     }
 
-    public function ladders():BelongsToMany
+    public function ladders(): BelongsToMany
     {
         return $this->belongsToMany(Ladder::class);
     }

@@ -31,10 +31,9 @@
 
 <script>
 module.exports = {
-    props: [
-        'ladder',
-    ],
-
+    props: {
+        'ladder': Object
+    },
     data: function () {
         return {
             ladderData: this.ladder,
@@ -43,8 +42,6 @@ module.exports = {
     },
     created: function() {
         this.getTeams();
-        console.log(this.ladder);
-        console.log(this.teams);
     },
     methods: {
         getTeams() {
