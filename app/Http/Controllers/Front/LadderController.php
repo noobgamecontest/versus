@@ -12,8 +12,7 @@ class LadderController
 {
     public function index(): Response
     {
-        $user = auth()->user();
-        return response()->view('ladder.index', ['user' => $user]);
+        return response()->view('ladder.index');
     }
 
     public function create()

@@ -18,31 +18,31 @@
     </div>
 </template>
 <script>
-    export default {
-        data(){
-            return {
-                ladders: Array,
-            }
+export default {
+    data(){
+        return {
+            ladders: Array,
+        }
+    },
+    mounted() {
+        this.getLadders();
+    },
+    methods: {
+        getLadders() {
+            axios.get('ajax/ladders')
+                .then(response => {
+                    this.ladders = Object.values(response.data.flat());
+                });
         },
-        mounted() {
-            this.getLadders();
+        showRanking(ladder){
+            window.location.href = 'ladders/' + ladder.id + '/ranking';
         },
-        methods: {
-            getLadders() {
-                axios.get('ajax/ladders')
-                    .then(response => {
-                        this.ladders = Object.values(response.data.flat());
-                    });
-            },
-            showRanking(ladder){
-                window.location.href = 'ladders/' + ladder.id + '/ranking';
-            },
-            deleteLadder(ladder){
-                axios.post('/ajax/ladders/' + ladder.id, {
-                    _method: 'delete'
-                })
-                window.location.href = '/';
-            },
+        deleteLadder(ladder){
+            axios.post('/ajax/ladders/' + ladder.id, {
+                _method: 'delete'
+            })
+            window.location.href = '/';
         }
     }
+}
 </script>
