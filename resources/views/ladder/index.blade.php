@@ -13,8 +13,13 @@
         </div>
     </div>
     <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 relative">
-        <a href="{{ route('ladder.create') }}" class="mt-1 md:mt-11 hover:underline mx-auto absolute text-gray-900 font-bold text-sm lg:text-2xl">Nouveau ladder</a>
-        <ladders-component></ladders-component>
+        @if (['middleware' => ['auth', 'is.admin']])
+            @if (auth()->user()->role == 'admin')
+                <a href="{{ route('ladder.create') }}" class="mt-1 md:mt-11 hover:underline mx-auto absolute text-gray-900 font-bold text-sm lg:text-2xl">Nouveau ladder</a>
+            @else
+            @endif
+        @endif
+        <ladders-component :user="{{ $user->toJson() }}"></ladders-component>
     </div>
 @endsection
 

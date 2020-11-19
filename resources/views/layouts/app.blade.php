@@ -27,7 +27,7 @@
     <body class="min-h-screen bg-gray-200 relative font-sans antialiased">
         <div id="app">
             <!-- Page Heading -->
-            <nav-component></nav-component>
+            <nav-component :username="{{ json_encode(Auth::user()->name) }}"></nav-component>
 
             <!-- Page Content -->
             <main class="relative">

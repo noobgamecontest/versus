@@ -15,7 +15,7 @@
         </div>
         <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-y-12 gap-x-4">
             <div :key="ladder.id" v-for="ladder in getFilteredLadders" class="relative hover:-translate-y-4 duration-500 transform">
-                <div class="space-x-1">
+                <div class="space-x-1" v-if="userRoleData === 'admin'">
                     <a :href="'ladders/' + ladder.id + '/edit'" class="focus:outline-none text-gray-700 hover:text-red-500 font-semibold tracking-wide text-xs"><i class="fas fa-pen"></i>Modifier</a>
                     <button v-on:click="deleteLadder(ladder)" class="focus:outline-none text-gray-700 hover:text-red-500 font-semibold tracking-wide text-xs"><i class="fas fa-trash"></i>Supprimer</button>
                 </div>
@@ -48,8 +48,12 @@ export default {
     data(){
         return {
             ladders: [],
+            userRoleData: this.user.role,
             search: ''
         }
+    },
+    props: {
+        'user': Object,
     },
     mounted() {
         this.getLadders();
