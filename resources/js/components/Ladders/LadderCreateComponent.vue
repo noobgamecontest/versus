@@ -1,28 +1,31 @@
 <template>
-    <div>
-        <h2 class="text-center font-semibold text-2xl text-white">Create ladder</h2>
-        <div class="max-w-sm mx-auto text-white text-xl text-shadow font-bold text-center bg-blue-700 py-2 mb-4">
-            <form class="space-y-4 px-3" v-on:submit.prevent="submitLadder">
-                <div>
-                    <label class="block w-full text-left" for="name">Name</label>
-                    <input v-model="ladder.name" class="focus:outline-none input-custom" type="text" name="name" id="name">
+    <div class="min-h-screen flex items-center justify-center bg-blue-500 pt-10 pb-12 px-4 sm:px-6 lg:px-8">
+        <div class="bg-yellow-star shadow-xl rounded-lg max-w-md w-full space-y-8 px-3 py-6">
+            <h2 class="mt-6 text-center text-4xl font-secondary uppercase text-gray-900">
+                Crée ton ladder !
+            </h2>
+            <form class="mt-8 space-y-6 px-3" v-on:submit.prevent="submitLadder">
+                <div class="space-y-6">
+                    <div class="block">
+                        <label class="block text-gray-900 font-semibold uppercase" for="name">Nom</label>
+                        <input v-model="ladder.name" id="name" name="name" type="text" required class="input-custom bg-yellow-200 focus:outline-none p-3 sm:text-sm">
+                    </div>
+                    <div>
+                        <label class="text-gray-900 font-semibold uppercase" for="description">Description</label>
+                        <input v-model="ladder.description" id="description" name="description" type="text" required class="input-custom bg-yellow-200 focus:outline-none p-3 sm:text-sm">
+                    </div>
+                    <div>
+                        <label class="text-gray-900 font-semibold uppercase" for="image_url">URL de l'Image</label>
+                        <input v-model="ladder.image_url" id="image_url" name="image_url" type="text" required class="input-custom bg-yellow-200 focus:outline-none p-3 sm:text-sm">
+                    </div>
                 </div>
-                <div>
-                    <label class="block w-full text-left" for="description">Description</label>
-                    <input v-model="ladder.description" class="focus:outline-none input-custom" type="text" id="description" name="description">
-                </div>
-                <div>
-                    <label class="block w-full text-left" for="category">Category</label>
-                    <input v-model="ladder.category" class="focus:outline-none input-custom" type="text" id="category" name="category">
-                </div>
-                <div>
-                    <label class="block w-full text-left" for="image_url">Image URL</label>
-                    <input v-model="ladder.image_url" class="focus:outline-none input-custom" type="text" name="image_url" id="image_url">
-                </div>
-                <button type="submit">create</button>
+                <button type="submit" class="btn-skew focus:outline-none bg-blue-500 text-xl shadow-xl border-3 py-2">
+                    Sign in
+                </button>
             </form>
         </div>
     </div>
+
 </template>
 <script>
     export default {
@@ -32,7 +35,8 @@
                     name: null,
                     description: null,
                     category: null,
-                    image_url: null
+                    image_url: null,
+                    number_players: null
                 }
             }
         },

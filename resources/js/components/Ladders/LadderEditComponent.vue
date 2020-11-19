@@ -1,24 +1,29 @@
 <template>
-    <div class="max-w-sm mx-auto text-white text-xl text-shadow font-bold text-center bg-blue-700 py-2 mb-4">
-        <form class="space-y-4 px-3" v-on:submit.prevent="submitEditLadder(ladderEdit)">
-            <div>
-                <label class="block w-full text-left" for="name">{{ ladderData.name }}</label>
-                <input v-model="ladderEdit.name" class="focus:outline-none input-custom" type="text" name="name" id="name">
-            </div>
-            <div>
-                <label class="block w-full text-left" for="description">{{ ladderData.description }}</label>
-                <input v-model="ladderEdit.description" class="focus:outline-none input-custom" type="text" id="description" name="description">
-            </div>
-            <div>
-                <label class="block w-full text-left" for="category">Category</label>
-                <input v-model="ladderEdit.category" class="focus:outline-none input-custom" type="text" id="category" name="category">
-            </div>
-            <div>
-                <label class="block w-full text-left" for="image_url">{{ ladder.image_url }}</label>
-                <input v-model="ladderEdit.image_url" class="focus:outline-none input-custom" type="text" id="image_url" name="image_url">
-            </div>
-            <button type="submit">edit</button>
-        </form>
+    <div class="min-h-screen flex items-center justify-center bg-blue-500 pt-10 pb-12 px-4 sm:px-6 lg:px-8">
+        <div class="bg-yellow-star shadow-xl rounded-lg max-w-md w-full space-y-8 px-3 py-6">
+            <h2 class="mt-6 text-center text-4xl font-secondary uppercase text-gray-900">
+                Paramètres du ladder {{ ladderData.name }} !
+            </h2>
+            <form class="mt-8 space-y-6 px-3" v-on:submit.prevent="submitEditLadder(ladderEdit)">
+                <div class="space-y-6">
+                    <div>
+                        <label class="text-gray-900 font-semibold uppercase" for="name">Nom: <span class="text-gray-700 normal-case">{{ ladderData.name }}</span></label>
+                        <input v-model="ladderEdit.name" id="name" name="name" type="text" required class="input-custom bg-yellow-200 focus:outline-none p-3 sm:text-sm">
+                    </div>
+                    <div>
+                        <label class="text-gray-900 font-semibold uppercase" for="description">Description: <span class="text-gray-700 normal-case dots">{{ ladderData.description }}</span></label>
+                        <input v-model="ladderEdit.description" id="description" name="description" type="text" required class="input-custom bg-yellow-200 focus:outline-none p-3 sm:text-sm">
+                    </div>
+                    <div>
+                        <label class="text-gray-900 font-semibold uppercase" for="image_url">Url de l'image: <span class="text-gray-700 normal-case dots">{{ ladderData.image_url.toLowerCase() }}</span></label>
+                        <input v-model="ladderEdit.image_url" id="image_url" name="image_url" type="text" required class="input-custom bg-yellow-200 focus:outline-none p-3 sm:text-sm">
+                    </div>
+                </div>
+                <button type="submit" class="btn-skew focus:outline-none bg-blue-500 text-xl shadow-xl border-3 py-2">
+                    Edit
+                </button>
+            </form>
+        </div>
     </div>
 </template>
 <script>

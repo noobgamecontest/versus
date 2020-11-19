@@ -2,14 +2,117 @@
 @import 'tailwindcss/components';
 @import 'tailwindcss/utilities';
 
+@media (min-width: 1280px) {
+    .my-background {
+        min-height: 50rem;
+    }
+}
+
+@media (min-width: 1024px) {
+    .circle-background {
+        clip-path: circle(180vh at 50% -80vh);
+    }
+}
+
 @responsive {
     .text-shadow {
         text-shadow: 0 1px 0 rgba(0,0,0,0.80);
     }
 }
 
-.input-custom {
-    @apply px-2 rounded-lg text-gray-600 w-full
+.img-card {
+    @apply h-full w-full object-cover;
 }
 
+.input-custom {
+    @apply px-2 rounded-lg text-gray-600 w-full;
+}
 
+.btn-skew {
+    @apply border-gray-900 w-full text-gray-900 w-full transform -skew-x-6 font-secondary font-medium uppercase tracking-wide;
+}
+
+.dots {
+    word-break: break-word;
+    display: -webkit-box;
+    -webkit-line-clamp: 2;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+}
+
+.img-sizing {
+    height: 100px;
+    width: 100%;
+    object-fit: cover;
+}
+
+.box {
+    display: flex;
+    width: 50px;
+    height: 50px;
+    transition: width 0.5s, transform 0.5s;
+}
+
+.box:focus {
+    width: 100%;
+    padding-right: 40px;
+}
+
+.shadow-card::after {
+    content: '.';
+    text-align: center;
+    position: absolute;
+    bottom: -20px;
+    left: 10px;
+    right: 10px;
+    opacity: 0.3;
+    background-color: black;
+    padding: 2px;
+    transition-duration: 600ms;
+}
+
+.shadow-card:hover::after {
+    bottom: -50px;
+    opacity: 0;
+    transition-duration: 300ms;
+}
+.z-back {
+    z-index: -1;
+}
+
+.circle-background {
+    display: table;
+    height: 100%;
+}
+
+.align-background {
+    display: table-cell;
+    text-align: center;
+    vertical-align: middle;
+}
+
+.bg-gradient::after {
+    z-index: 45;
+    content: '';
+    position: absolute;
+    top: 180px;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: rgb(0,81,185);
+    background: linear-gradient(0deg, rgba(0,81,185,1) 15%, rgba(0,81,185,0) 100%);
+}
+
+.absolute-center {
+    top: 40%;
+}
+
+.absolute-create {
+    margin: auto;
+    position: absolute;
+    top: 0; left: 0; bottom: 0; right: 0;
+}
+
+.min-w-xl {
+    max-width: 52rem;
+}
