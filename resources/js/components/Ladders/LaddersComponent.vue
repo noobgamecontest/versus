@@ -57,7 +57,6 @@ export default {
     },
     mounted() {
         this.getLadders();
-        console.log(this.userRoleData);
     },
     methods: {
         getLadders() {
