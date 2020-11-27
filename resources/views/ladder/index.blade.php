@@ -5,7 +5,7 @@
         <div class="circle-background w-full h-full z-back mt-0 lg:-mt-40 bg-blue-500 bg-gradient relative">
             <div class="align-background">
                 <div class="max-w-6xl mx-auto py-1 px-4 sm:px-6 lg:px-8 relative h-full">
-                    <h1 class="text-center xl:text-left align-middle font-title text-4xl sm:text-5xl lg:text-5xl xl:text-7xl text-shadow leading-none tracking-tight text-gray-100 top-0 absolute absolute-center z-50">
+                    <h1 class="text-center unselectable xl:text-left align-middle font-title text-4xl sm:text-5xl lg:text-5xl xl:text-7xl text-shadow leading-none tracking-tight text-gray-100 top-0 absolute absolute-center z-50">
                         Tournois à éliminations directes et calcul des points par équité !
                     </h1>
                 </div>
@@ -13,13 +13,15 @@
         </div>
     </div>
     <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 relative">
-        @if (['middleware' => ['auth', 'is.admin']])
+        @auth()
             @if (auth()->user()->role == 'admin')
                 <a href="{{ route('ladder.create') }}" class="mt-1 md:mt-11 hover:underline mx-auto absolute text-gray-900 font-bold text-sm lg:text-2xl">Nouveau ladder</a>
-            @else
             @endif
-        @endif
-        <ladders-component :user="{{ $user->toJson() }}"></ladders-component>
+            <ladders-component :user="{{ auth()->user()->toJson() }}"></ladders-component>
+        @endauth
+        @guest
+            <ladders-component></ladders-component>
+        @endguest
     </div>
 @endsection
 

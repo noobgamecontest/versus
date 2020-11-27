@@ -76,6 +76,7 @@
     opacity: 0;
     transition-duration: 300ms;
 }
+
 .z-back {
     z-index: -1;
 }
@@ -92,7 +93,7 @@
 }
 
 .bg-gradient::after {
-    z-index: 45;
+    z-index: 20;
     content: '';
     position: absolute;
     top: 180px;
@@ -101,6 +102,15 @@
     bottom: 0;
     background: rgb(0,81,185);
     background: linear-gradient(0deg, rgba(0,81,185,1) 15%, rgba(0,81,185,0) 100%);
+}
+
+.unselectable {
+    -webkit-touch-callout: none;
+    -webkit-user-select: none;
+    -khtml-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
 }
 
 .absolute-center {

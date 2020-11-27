@@ -18,10 +18,6 @@ Vue.component(
     'ladder-edit',
     require('./components/Ladders/LadderEditComponent.vue').default
 );
-Vue.component(
-    'nav-component',
-    require('./components/NavComponent.vue').default
-);
 
 const app = new Vue({
     el: '#app',

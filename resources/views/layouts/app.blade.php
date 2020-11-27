@@ -27,10 +27,25 @@
     <body class="min-h-screen bg-gray-200 relative font-sans antialiased">
         <div id="app">
             <!-- Page Heading -->
-            <nav-component :username="{{ json_encode(Auth::user()->name) }}"></nav-component>
-
+            <header class="py-1 text-white">
+                <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 justify-between flex items-center text-shadow">
+                    <a class="text-yellow-star flex items-center text-4xl font-title" href="/">Versus</a>
+                    <div class="flex items-center">
+                        @auth
+                            <a href="#" class="font-bold text-lg" id="userName">{{ $user->name }}</a>
+                            <i class="ml-1 text-sm pt-1 fas fa-chevron-down"></i>
+                        @endauth
+                        @guest
+                            <div class="space-x-4">
+                                <a href="{{ route('login') }}" class="font-bold text-lg">Connexion</a>
+                                <a href="{{ route('#') }}" class="bg- font-bold text-lg">Créer votre compte</a>
+                            </div>
+                        @endguest
+                    </div>
+                </div>
+            </header>
             <!-- Page Content -->
-            <main class="relative">
+            <main>
                 @yield('content')
             </main>
         </div>

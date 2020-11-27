@@ -4,9 +4,7 @@ namespace App\Http\Controllers\Front;
 
 use App\Models\Team;
 use App\Models\Ladder;
-use GuzzleHttp\Psr7\Request;
 use Illuminate\Http\Response;
-use PhpParser\Node\Expr\Cast\Int_;
 
 class LadderController
 {
@@ -17,10 +15,9 @@ class LadderController
         return response()->view('ladder.index', ['user' => $user]);
     }
 
-
-    public function create()
+    public function create(): Response
     {
-        return view('ladder.create');
+        return response()->view('ladder.create');
     }
 
     public function ranking(Ladder $ladder, Team $teams): Response

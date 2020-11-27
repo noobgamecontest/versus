@@ -5,14 +5,13 @@ namespace App\Http\Controllers\Ajax;
 use App\Http\Requests\StoreLadderFormRequest;
 use App\Models\Ladder;
 use App\Http\Requests\UpdateLadderFormRequest;
-use Illuminate\Http\RedirectResponse;
 use Illuminate\Http\Request;
 use Illuminate\Http\JsonResponse;
 use App\Http\Controllers\Controller;
 
 class LadderController extends Controller
 {
-    public function index(): JsonResponse
+    public function getAll(): JsonResponse
     {
         $ladders = Ladder::all();
 

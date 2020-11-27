@@ -32,24 +32,22 @@
 <script>
 module.exports = {
     props: {
-        'ladder': Object
+        'ladder': Array
     },
     data: function () {
         return {
-            ladderData: this.ladder,
             teams: Array,
         }
     },
     created: function() {
-        this.getTeams();
+        this.getLadder();
     },
     methods: {
-        getTeams() {
-            axios.get('/ajax/ladders/' + this.ladder.id + '/teams').then(response => {
+        getLadder() {
+            axios.get('/ajax/ladders/' + this.ladder.id + '/ranking').then(response => {
                 this.teams = response.data;
-            });
+            })
         }
-    },
-
+    }
 }
 </script>
