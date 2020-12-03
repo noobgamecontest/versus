@@ -13,9 +13,7 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/login', function () {
-    return 'No way !';
-})->name('login');
+Auth::routes();
 
 Route::get('/', [App\Http\Controllers\Front\LadderController::class, 'index'])->name('ladder.index');
 Route::get('/ladders/{ladder}/ranking', [App\Http\Controllers\Front\LadderController::class, 'ranking'])->name('ladder.ranking');
