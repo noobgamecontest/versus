@@ -4,8 +4,9 @@ namespace App\Http\Controllers\Front;
 
 use App\Models\Ladder;
 use Illuminate\Http\Response;
+use App\Http\Controllers\Controller;
 
-class LadderController
+class LadderController extends Controller
 {
     public function index(): Response
     {

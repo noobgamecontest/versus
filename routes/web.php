@@ -17,6 +17,8 @@ Auth::routes();
 
 Route::get('/', [App\Http\Controllers\Front\LadderController::class, 'index'])->name('ladder.index');
 Route::get('/ladders/{ladder}/ranking', [App\Http\Controllers\Front\LadderController::class, 'ranking'])->name('ladder.ranking');
+Route::get('/ladders/{ladder}/teams/create', [App\Http\Controllers\Front\TeamController::class, 'create'])->name('team.create')->middleware('team.registred');
+Route::post('ladders/{ladder}/teams', [App\Http\Controllers\Front\TeamController::class, 'store'])->name('team.store');
 
 Route::group(['prefix' => 'ajax'], function () {
     Route::get('ladders', [App\Http\Controllers\Ajax\LadderController::class, 'index'])->name('ajax.ladder.index');
