@@ -18,15 +18,13 @@ class AjaxLadderControllerTest extends TestCase
     /** @test */
     public function can_have_ladders()
     {
-        $expectedLadders = Ladder::factory()->count(2)->create();
+        Ladder::factory()->count(2)->create();
 
-        $response = $this->get('/ajax/ladders');
+        $response = $this->get('/');
 
         $response->assertSuccessful();
 
-        $response->assertJsonCount(2);
-        $response->assertJsonFragment(['name' => $expectedLadders[0]->name]);
-        $response->assertJsonFragment(['name' => $expectedLadders[1]->name]);
+        $response->assertViewHas('ladders', Ladder::all());
     }
 
     /** @test */
@@ -63,20 +61,16 @@ class AjaxLadderControllerTest extends TestCase
             'role' => 'admin',
         ]);
 
-        $response = $this->actingAs($admin)->post('/ajax/ladders', [
-            'name' => $name = '100v100 King',
-            'description' => 'Lorem Elsass ipsum Salu bissame Spätzle ...',
-        ]);
-
-        $response->assertSuccessful();
-
-        $response->assertJsonFragment([
-            'name' => $name,
+        $response = $this->actingAs($admin)->post('/ajax/ladders/', [
+            'name' => $name = 'New age !',
+            'description' => "Everyday I'm Shuffling ...",
         ]);
 
         $this->assertDatabaseHas('ladders', [
             'name' => $name,
         ]);
+
+        $response->assertStatus(302);
     }
 
     /** @test */
@@ -122,11 +116,7 @@ class AjaxLadderControllerTest extends TestCase
             'description' => "Everyday I'm Shuffling ...",
         ]);
 
-        $response->assertSuccessful();
-
-        $response->assertJsonFragment([
-            'name' => $name,
-        ]);
+        $response->assertStatus(302);
 
         $this->assertDatabaseHas('ladders', [
             'id' => $ladder->id,
