@@ -2,20 +2,16 @@
 
 namespace App\Http\Controllers\Ajax;
 
+use App\Http\Requests\StoreLadderFormRequest;
+use App\Http\Requests\UpdateLadderFormRequest;
 use App\Models\Ladder;
+use Illuminate\Http\RedirectResponse;
 use Illuminate\Http\Request;
 use Illuminate\Http\JsonResponse;
 use App\Http\Controllers\Controller;
 
 class LadderController extends Controller
 {
-    public function index(): JsonResponse
-    {
-        $ladders = Ladder::all();
-
-        return response()->json($ladders);
-    }
-
     public function ranking(Request $request, Ladder $ladder): JsonResponse
     {
         $teams = $ladder->teams()->whereNotNull('level')->orderBy('elo', 'desc')->get();
@@ -36,29 +32,24 @@ class LadderController extends Controller
         return response()->json($teams);
     }
 
-    public function store(Request $request): JsonResponse
+    public function store(Ladder $ladder, StoreLadderFormRequest $request): RedirectResponse
     {
-        $request->validate([
-            'name' => 'required|string',
-        ]);
+        $ladder->create($request->only('name', 'description'));
 
-        $ladder = Ladder::create(
-            $request->only(['name', 'description'])
-        );
-
-        return response()->json($ladder);
+        return redirect()->route('ladder.index');
     }
 
-    public function update(Request $request, Ladder $ladder): JsonResponse
+    public function update(UpdateLadderFormRequest $request, Ladder $ladder): RedirectResponse
     {
-        $request->validate([
-            'name' => 'required|string',
-        ]);
+        $ladder->update($request->only('name', 'description'));
 
-        $ladder->update(
-            $request->only(['name', 'description'])
-        );
+        return redirect()->route('ladder.index');
+    }
 
-        return response()->json($ladder);
+    public function destroy(Ladder $ladder): RedirectResponse
+    {
+        $ladder->delete();
+
+        return redirect()->route('ladder.index');
     }
 }
